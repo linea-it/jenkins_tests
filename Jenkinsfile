@@ -1,7 +1,7 @@
 pipeline {
     environment {
         DEPLOYMENT = 'jenkins_tests'
-        TAG = sh(script: "git describe --tags ${GIT_COMMIT}", returnStdout: true)?.trim()
+        TAG = sh('git describe --tags ${GIT_COMMIT} || echo "Fail"')
     }
     agent any
     stages {
