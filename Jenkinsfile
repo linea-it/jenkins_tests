@@ -6,8 +6,9 @@ pipeline {
     stages {
         stage('Testing') {
             steps {
-                sh('export TAG=`git describe --tags ${GIT_COMMIT}` || echo ""')
-                sh('export REFS=`git describe --tags --all` || echo ""')
+                sh('tag=`git describe --tags ${GIT_COMMIT}` || echo ""')
+                sh('printf '{"tag":"%s","commit":"%s"}\n' "$tag" "$GIT_COMMIT" > version.json')
+                sh('cat version.json')
                 sh 'printenv'
             }
         }
