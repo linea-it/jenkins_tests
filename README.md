@@ -1,2 +1,2 @@
 # jenkins_tests
-Sporadic testing with jenkins
+Sporadic tests with jenkins
