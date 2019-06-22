@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Testing') {
             steps {
-                sh('./version.sh')
+                sh './version.sh && cat version.json'
                 sh 'printenv'
             }
         }
